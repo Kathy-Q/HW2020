@@ -90,14 +90,17 @@ function renderEditor() {
         }
         upE1.innerText = "↿";
         upE1.onclick = () =>{
-        
+            tasks[taskIdx]= tasks.splice(taskIdx-1, 1,  tasks[taskIdx])[0];
+            renderTasksItems();
         };
         ctrlbarE1.append(upE1); 
 
         let downE1 = document.createElement("button");
         downE1.innerText = "⇂";
         downE1.onclick = () =>{
-
+            tasks[taskIdx]= tasks.splice(taskIdx+1, 1,  tasks[taskIdx])[0];
+                 
+            renderTasksItems();
         };
         ctrlbarE1.append(downE1);
 
@@ -111,5 +114,11 @@ function renderEditor() {
         ctrlbarE1.append(cancelE1); 
         return ctrlbarE1;
     }
+
+
+
+
+
+
     renderEditor();
     renderTasksItems();
